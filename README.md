@@ -1,6 +1,6 @@
 # UnboundByte Public Website
 
-![UnboundByte Banner](https://via.placeholder.com/1200x400/0a0a0a/6366f1?text=UnboundByte+Public+Platform)
+![UnboundByte Banner](https://unboundbytesolution.com/public/assets/img/logo1.png)
 
 > **Enterprise-grade engineering education platform.**  
 > A modern, high-performance public website built with Next.js 14, Tailwind CSS, and TypeScript, featuring a premium "Dark Glass" aesthetic.
