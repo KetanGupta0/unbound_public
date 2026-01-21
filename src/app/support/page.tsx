@@ -50,7 +50,7 @@ export default function SupportPage() {
                         <Link href="/contact">
                             <Button size="lg">Contact Us</Button>
                         </Link>
-                        <a href="mailto:support@unboundbyte.com">
+                        <a href="mailto:contact@unboundbytesolution.com">
                             <Button variant="outline" size="lg">Email Support</Button>
                         </a>
                     </div>

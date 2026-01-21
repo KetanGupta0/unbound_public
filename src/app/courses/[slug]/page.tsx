@@ -138,7 +138,7 @@ export default async function CourseDetailPage({ params }: { params: Promise<{ s
                 <div className="space-y-8">
 
                     {/* Enrollment Card */}
-                    <div className="glass p-8 rounded-2xl sticky top-24 border border-[var(--primary)]/30">
+                    <div className="glass p-8 rounded-2xl lg:sticky lg:top-24 border border-[var(--primary)]/30">
                         <div className="text-center mb-6">
                             <span className="text-gray-400 text-sm uppercase tracking-wide">Total Price</span>
                             <div className="text-5xl font-bold text-white mt-2">{course.priceDisplay}</div>

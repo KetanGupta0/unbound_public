@@ -1,4 +1,6 @@
-import React from 'react';
+"use client";
+
+import React, { useRef, useState, useEffect } from 'react';
 import { Button } from '@/components/ui/Button';
 import Link from 'next/link';
 
@@ -31,21 +33,26 @@ export default function Home() {
   ];
 
   const testimonials = [
-    {
-      name: "Alex R.",
-      role: "Software Engineer at Google",
-      quote: "UnboundByte's system design course bridged the gap between my academic knowledge and what's actually needed in big tech. Highly recommended!"
-    },
-    {
-      name: "Sarah M.",
-      role: "Frontend Lead",
-      quote: "The attention to detail in the teaching methodology is unmatched. I finally understand how React works under the hood."
-    },
-    {
-      name: "James K.",
-      role: "Career Switcher",
-      quote: "I went from zero to a full-stack job in 6 months using their roadmap. The project-based approach changed everything for me."
-    }
+    { name: "Alex R.", role: "Software Engineer at Google", quote: "UnboundByte's system design course bridged the gap between my academic knowledge and what's actually needed in big tech." },
+    { name: "Sarah M.", role: "Frontend Lead", quote: "The attention to detail in the teaching methodology is unmatched. I finally understand how React works under the hood." },
+    { name: "James K.", role: "Career Switcher", quote: "I went from zero to a full-stack job in 6 months using their roadmap. The project-based approach changed everything for me." },
+    { name: "Michael T.", role: "DevOps Engineer", quote: "The Kubernetes module is pure gold. It saved me weeks of trial and error in my current job." },
+    { name: "Priya S.", role: "Backend Developer", quote: "I love how the curriculum focuses on scalable architecture rather than just syntax. A game changer." },
+    { name: "David L.", role: "Full Stack Dev", quote: "The mentorship was excellent. Queries were resolved instantly, and code reviews were thorough." },
+    { name: "Emily W.", role: "Product Manager", quote: "Took the 'Tech for PMs' track. Now I can actually converse confidently with my engineering team." },
+    { name: "Daniel H.", role: "CS Student", quote: "Better than my university electives. Practical, hands-on, and up-to-date with industry standards." },
+    { name: "Jessica B.", role: "Mobile Dev", quote: "Flutter vs React Native module helped me make the right choice for my startup's app." },
+    { name: "Ryan G.", role: "CTO at Startup", quote: "I use UnboundByte to train my junior engineers. The consistency in quality is reliable." },
+    { name: "Kevin N.", role: "Data Scientist", quote: "The Python for Engineering course helped me write production-ready code, not just scripts." },
+    { name: "Laura C.", role: "UX Designer", quote: "Understanding frontend constraints helped me become a better designer. Highly recommended." },
+    { name: "Robert P.", role: "Security Analyst", quote: "The DevSecOps section covered nuances that most other courses completely ignore." },
+    { name: "Anita D.", role: "Freelancer", quote: "I increased my hourly rate by 50% after adding these advanced backend skills to my portfolio." },
+    { name: "Thomas F.", role: "Systems Admin", quote: "Transitioning to SRE was seamless thanks to the Cloud Native track." },
+    { name: "Olivia J.", role: "QA Engineer", quote: "Automation testing modules are top-notch. I built a full framework for my company." },
+    { name: "William K.", role: "Blockchain Dev", quote: "The Web3 integration course was exactly what I needed to break into the crypto space." },
+    { name: "Sophia M.", role: "Junior Dev", quote: "The community is amazing. I found my study partner here and we both got hired in the same month." },
+    { name: "Ethan V.", role: "Cloud Architect", quote: "AWS deep dives are rigorous. Validated a lot of my architectural decisions." },
+    { name: "Isabella R.", role: "Tech Lead", quote: "Refreshed my knowledge on microservices patterns. Content is dense and respects your time." }
   ];
 
   return (
@@ -118,7 +125,10 @@ export default function Home() {
           <div className="relative">
             <div className="absolute inset-0 bg-gradient-to-r from-[var(--primary)] to-[var(--accent)] rounded-2xl blur-2xl opacity-20"></div>
             <div className="relative glass p-8 rounded-2xl border-white/10 aspect-video flex items-center justify-center">
-              <span className="text-gray-500">Video / Image Placeholder</span>
+              <div className="text-center">
+                <div className="text-6xl mb-4">▶️</div>
+                <span className="text-gray-500">Watch Our Journey</span>
+              </div>
             </div>
           </div>
         </div>
@@ -165,30 +175,7 @@ export default function Home() {
       </section>
 
       {/* 5. TESTIMONIALS */}
-      <section className="py-24 px-4 sm:px-6 lg:px-8">
-        <div className="max-w-7xl mx-auto">
-          <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-4xl font-bold mb-4">What Our Students Say</h2>
-            <p className="text-gray-400">Don't just take our word for it.</p>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {testimonials.map((t, i) => (
-              <div key={i} className="glass p-8 rounded-2xl relative">
-                <div className="absolute top-6 right-8 text-4xl text-white/5 font-serif">"</div>
-                <p className="text-gray-300 mb-6 relative z-10 italic">"{t.quote}"</p>
-                <div className="flex items-center gap-4">
-                  <div className="w-10 h-10 rounded-full bg-gradient-to-tr from-[var(--primary)] to-[var(--accent)]"></div>
-                  <div>
-                    <h4 className="font-bold text-white text-sm">{t.name}</h4>
-                    <p className="text-xs text-gray-500">{t.role}</p>
-                  </div>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
+      <TestimonialsCarousel testimonials={testimonials} />
 
       {/* 6. CALL TO ACTION BANNER */}
       <section className="py-24 px-4 sm:px-6 lg:px-8">
@@ -204,10 +191,10 @@ export default function Home() {
               </p>
               <div className="flex flex-col sm:flex-row justify-center gap-4">
                 <Link href="/courses">
-                  <Button size="lg" className="bg-white text-black hover:bg-gray-200 shadow-xl">Get Started Now</Button>
+                  <Button size="lg" className="bg-white !text-black hover:bg-gray-200 shadow-xl font-bold">Get Started Now</Button>
                 </Link>
                 <Link href="/contact">
-                  <Button variant="outline" size="lg" className="border-white text-white hover:bg-white hover:text-black">Contact Sales</Button>
+                  <Button variant="outline" size="lg" className="border-white text-white hover:bg-white hover:!text-black transition-colors">Contact Sales</Button>
                 </Link>
               </div>
             </div>
@@ -216,5 +203,108 @@ export default function Home() {
       </section>
 
     </div>
+  );
+}
+
+function TestimonialsCarousel({ testimonials }: { testimonials: { name: string; role: string; quote: string }[] }) {
+  const scrollRef = useRef<HTMLDivElement>(null);
+  const [isPaused, setIsPaused] = useState(false);
+
+  // Auto-scroll logic
+  useEffect(() => {
+    if (isPaused) return;
+
+    const interval = setInterval(() => {
+      handleScroll('next');
+    }, 4000); // Scroll every 4 seconds
+
+    return () => clearInterval(interval);
+  }, [isPaused]);
+
+  const handleScroll = (direction: 'left' | 'right' | 'next' | 'prev') => {
+    if (!scrollRef.current) return;
+
+    const container = scrollRef.current;
+    // On mobile we scroll full width, on desktop we scroll ~400px
+    const isMobile = window.innerWidth < 768;
+    const scrollAmount = isMobile
+      ? window.innerWidth * 0.85
+      : 400 + 24; // Card width + gap
+
+    const amount = (direction === 'left' || direction === 'prev') ? -scrollAmount : scrollAmount;
+
+    // Check for loop condition
+    const maxScroll = container.scrollWidth - container.clientWidth;
+
+    if (direction === 'next' && container.scrollLeft >= maxScroll - 10) {
+      // If at end, loop back efficiently
+      container.scrollTo({ left: 0, behavior: 'smooth' });
+    } else if (direction === 'prev' && container.scrollLeft <= 10) {
+      // If at start, jump to end (optional, or just stop)
+      container.scrollTo({ left: maxScroll, behavior: 'smooth' });
+    } else {
+      container.scrollBy({ left: amount, behavior: 'smooth' });
+    }
+  };
+
+  return (
+    <section className="py-24 px-4 sm:px-6 lg:px-8 overflow-hidden group"
+      onMouseEnter={() => setIsPaused(true)}
+      onMouseLeave={() => setIsPaused(false)}>
+      <div className="max-w-7xl mx-auto relative">
+        <div className="text-center mb-16">
+          <h2 className="text-3xl md:text-4xl font-bold mb-4">What Our Students Say</h2>
+          <p className="text-gray-400">Join 5000+ alumni who have transformed their careers.</p>
+        </div>
+
+        {/* Navigation Buttons - Visible on hover or always on touch */}
+        <button
+          onClick={() => handleScroll('prev')}
+          className="absolute left-0 top-1/2 -translate-y-1/2 z-20 bg-black/50 hover:bg-[var(--primary)] text-white p-3 rounded-full backdrop-blur-md border border-white/10 transition-all opacity-0 group-hover:opacity-100 disabled:opacity-0 -ml-4 lg:-ml-12"
+          aria-label="Previous testimonial"
+        >
+          <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" /></svg>
+        </button>
+
+        <button
+          onClick={() => handleScroll('next')}
+          className="absolute right-0 top-1/2 -translate-y-1/2 z-20 bg-black/50 hover:bg-[var(--primary)] text-white p-3 rounded-full backdrop-blur-md border border-white/10 transition-all opacity-0 group-hover:opacity-100 disabled:opacity-0 -mr-4 lg:-mr-12"
+          aria-label="Next testimonial"
+        >
+          <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" /></svg>
+        </button>
+
+        {/* Horizontal Scroll Container */}
+        <div
+          ref={scrollRef}
+          className="flex overflow-x-auto pb-8 pt-2 px-4 space-x-6 hide-scrollbar snap-x snap-mandatory scroll-smooth"
+        >
+          {testimonials.map((t, i) => (
+            <div key={i} className="flex-none w-[85vw] md:w-[400px] snap-center">
+              <div className="glass p-8 rounded-2xl relative h-full flex flex-col hover:bg-white/5 transition-colors cursor-pointer border border-white/5 hover:border-white/10">
+                <div className="absolute top-6 right-8 text-4xl text-white/5 font-serif">"</div>
+                <p className="text-gray-300 mb-6 relative z-10 italic flex-grow text-lg">"{t.quote}"</p>
+                <div className="flex items-center gap-4 mt-auto">
+                  <div className="w-12 h-12 rounded-full bg-gradient-to-tr from-[var(--primary)] to-[var(--accent)] flex items-center justify-center text-sm font-bold text-white shadow-lg">
+                    {t.name.charAt(0)}
+                  </div>
+                  <div>
+                    <h4 className="font-bold text-white text-base">{t.name}</h4>
+                    <p className="text-sm text-[var(--primary)]">{t.role}</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          ))}
+        </div>
+
+        {/* Scroll Indicators (Fading Edges) */}
+        <div className="absolute top-0 left-0 w-8 h-full bg-gradient-to-r from-[var(--background)] to-transparent pointer-events-none md:w-20"></div>
+        <div className="absolute top-0 right-0 w-8 h-full bg-gradient-to-l from-[var(--background)] to-transparent pointer-events-none md:w-20"></div>
+
+
+
+      </div>
+    </section>
   );
 }

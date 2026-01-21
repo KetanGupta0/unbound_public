@@ -15,32 +15,41 @@
 
 :root {
   /* Light Theme - Modern & Clean */
-  --background: #f8fafc; /* Slate 50 */
-  --foreground: #0f172a; /* Slate 900 */
-  
-  --primary: #6366f1; /* Indigo 500 */
+  --background: #f8fafc;
+  /* Slate 50 */
+  --foreground: #0f172a;
+  /* Slate 900 */
+
+  --primary: #6366f1;
+  /* Indigo 500 */
   --primary-foreground: #ffffff;
-  
-  --secondary: #e2e8f0; /* Slate 200 */
+
+  --secondary: #e2e8f0;
+  /* Slate 200 */
   --secondary-foreground: #1e293b;
-  
-  --accent: #06b6d4; /* Cyan 500 */
+
+  --accent: #06b6d4;
+  /* Cyan 500 */
   --accent-foreground: #ffffff;
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
     /* Dark Theme - Premium & Deep */
-    --background: #0B0B15; /* Deep rich black/blue */
+    --background: #0B0B15;
+    /* Deep rich black/blue */
     --foreground: #f8fafc;
-    
-    --primary: #818cf8; /* Indigo 400 */
+
+    --primary: #818cf8;
+    /* Indigo 400 */
     --primary-foreground: #0f172a;
-    
-    --secondary: #1e293b; /* Slate 800 */
+
+    --secondary: #1e293b;
+    /* Slate 800 */
     --secondary-foreground: #f8fafc;
-    
-    --accent: #22d3ee; /* Cyan 400 */
+
+    --accent: #22d3ee;
+    /* Cyan 400 */
     --accent-foreground: #0f172a;
   }
 }
@@ -73,13 +82,28 @@ body {
 }
 
 .hero-glow {
-    position: absolute;
-    width: 600px;
-    height: 600px;
-    background: radial-gradient(circle, rgba(99,102,241,0.15) 0%, rgba(0,0,0,0) 70%);
-    top: -200px;
-    left: 50%;
-    transform: translateX(-50%);
-    pointer-events: none;
-    z-index: 0;
+  position: absolute;
+  width: 600px;
+  height: 600px;
+  background: radial-gradient(circle, rgba(99, 102, 241, 0.15) 0%, rgba(0, 0, 0, 0) 70%);
+  top: -200px;
+  left: 50%;
+  transform: translateX(-50%);
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* Hide Scrollbar Utility */
+.hide-scrollbar {
+  -ms-overflow-style: none !important;
+  /* IE and Edge */
+  scrollbar-width: none !important;
+  /* Firefox */
+}
+
+.hide-scrollbar::-webkit-scrollbar {
+  display: none !important;
+  /* Chrome, Safari and Opera */
+  width: 0 !important;
+  height: 0 !important;
 }

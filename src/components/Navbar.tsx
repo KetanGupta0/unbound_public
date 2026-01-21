@@ -33,9 +33,8 @@ export const Navbar = () => {
                     <div className="flex items-center justify-between h-16 relative z-50">
                         {/* Logo */}
                         <div className="flex-shrink-0">
-                            <Link href="/" className="text-2xl font-bold tracking-tight" onClick={closeMenu}>
-                                <span className="text-white">Unbound</span>
-                                <span className="text-[var(--primary)]">Byte</span>
+                            <Link href="/" onClick={closeMenu}>
+                                <img src="/logo2.png" alt="UnboundByte Solutions" className="h-10 w-auto" />
                             </Link>
                         </div>
 

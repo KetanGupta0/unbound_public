@@ -8,9 +8,8 @@ export const Footer = () => {
 
                     {/* Brand Column */}
                     <div className="space-y-4">
-                        <Link href="/" className="text-2xl font-bold tracking-tight">
-                            <span className="text-white">Unbound</span>
-                            <span className="text-[var(--primary)]">Byte</span>
+                        <Link href="/">
+                            <img src="/logo2.png" alt="UnboundByte Solutions" className="h-12 w-auto" />
                         </Link>
                         <p className="text-gray-400 text-sm">
                             Empowering the next generation of software engineers with enterprise-grade skills and first-principles thinking.

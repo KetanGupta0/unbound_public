@@ -171,7 +171,7 @@ export default function ContactPage() {
                                 </div>
                                 <div>
                                     <h3 className="font-bold text-white mb-1">Visit Us</h3>
-                                    <p className="text-gray-400">123 Innovation Drive<br />Tech Valley, CA 94043</p>
+                                    <p className="text-gray-400">Aaditya Vihar Colony, Near Jio Tower, <br />Brahmpur Bazar, Phulwari Sharif, <br />Patna, Bihar - 801505</p>
                                 </div>
                             </div>
 
@@ -181,7 +181,7 @@ export default function ContactPage() {
                                 </div>
                                 <div>
                                     <h3 className="font-bold text-white mb-1">Email Us</h3>
-                                    <p className="text-gray-400">hello@unboundbyte.com<br />support@unboundbyte.com</p>
+                                    <p className="text-gray-400">contact@unboundbytesolution.com</p>
                                 </div>
                             </div>
 
@@ -191,7 +191,7 @@ export default function ContactPage() {
                                 </div>
                                 <div>
                                     <h3 className="font-bold text-white mb-1">Call Us</h3>
-                                    <p className="text-gray-400">+1 (555) 123-4567<br />Mon-Fri, 9am - 6pm PST</p>
+                                    <p className="text-gray-400">+91 8578888983<br />Mon-Fri, 9am - 6pm IST</p>
                                 </div>
                             </div>
                         </div>
@@ -199,7 +199,7 @@ export default function ContactPage() {
                         {/* Map Embed */}
                         <div className="rounded-2xl overflow-hidden h-80 border border-white/10 relative bg-gray-900">
                             <iframe
-                                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3168.628236556408!2d-122.08639518434778!3d37.422057779825424!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x808fba02425dad8f%3A0x6c296c66619367e0!2sGoogleplex!5e0!3m2!1sen!2sus!4v1616624991475!5m2!1sen!2sus"
+                                src="https://www.google.com/maps/embed?pb=!1m13!1m8!1m3!1d1067.3489877718162!2d85.0801399!3d25.5641028!3m2!1i1024!2i768!4f13.1!3m2!1m1!2zMjXCsDMzJzUwLjMiTiA4NcKwMDQnNDkuNiJF!5e1!3m2!1sen!2sin!4v1769016330233!5m2!1sen!2sin"
                                 width="100%"
                                 height="100%"
                                 style={{ border: 0, filter: 'grayscale(100%) invert(90%)' }}
