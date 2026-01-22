@@ -134,7 +134,7 @@ export default function ServicesPage() {
                         We love complex problems. Let's schedule a discovery call to see how we can help.
                     </p>
                     <Link href="/contact" className="relative z-10">
-                        <Button size="lg" variant="outline" className="border-white text-white hover:bg-white hover:text-black">
+                        <Button size="lg" variant="outline" className="border-white text-white hover:bg-white hover:!text-black">
                             Contact Us Specifically
                         </Button>
                     </Link>
